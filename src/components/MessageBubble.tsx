@@ -2,13 +2,14 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Bot, User } from 'lucide-react';
-import type { Message } from './ChatInterface';
+import type { Message } from '../types';
 
 interface MessageBubbleProps {
   message: Message;
+  onOptionClick?: (option: string) => void;
 }
 
-const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
+const MessageBubble: React.FC<MessageBubbleProps> = ({ message, onOptionClick }) => {
   const isUser = message.type === 'user';
 
   return (
@@ -72,6 +73,21 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
               >
                 {message.content}
               </ReactMarkdown>
+            </div>
+          )}
+
+          {/* Quick Reply Options */}
+          {message.options && message.options.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {message.options.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() => onOptionClick?.(option)}
+                  className="px-3 py-2 bg-purple-600/20 hover:bg-purple-600/40 border border-purple-500/30 hover:border-purple-400/50 rounded-lg text-sm text-purple-300 hover:text-purple-200 transition-all duration-300 hover:scale-105"
+                >
+                  {option}
+                </button>
+              ))}
             </div>
           )}
 
