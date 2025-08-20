@@ -1,8 +1,9 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "learnerbot-ai-assistant",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "An advanced AI learning companion powered by GPT-4 for young learners",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,8 +11,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "canvas-confetti": "^1.9.3",
+    "framer-motion": "^12.23.12",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
+    "react-confetti": "^6.4.0",
     "react-dom": "^18.3.1",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1"
